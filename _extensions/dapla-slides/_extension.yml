@@ -1,0 +1,7 @@
+contributes:
+  formats:
+    revealjs:
+      theme: [dapla.scss]
+      footer: |
+        Copyright 2025 (c) Miles Winther
+      incremental: true
