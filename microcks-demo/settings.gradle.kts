@@ -1,4 +1,3 @@
 
 
-rootProject.name="microcks-demo"
-
+rootProject.name = "microcks-demo"
