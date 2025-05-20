@@ -19,7 +19,7 @@ class BakeryStockStatusTest {
     }
 
     @Test
-    fun muffinsStockStatusTest(spec: RequestSpecification) {
+    fun `muffins stock status`(spec: RequestSpecification) {
         spec
             .`when`()
             .get("/baked-goods/muffins/stock")
@@ -29,7 +29,7 @@ class BakeryStockStatusTest {
     }
 
     @Test
-    fun unknownStockStatusTest(spec: RequestSpecification) {
+    fun `unknown stock status`(spec: RequestSpecification) {
         spec
             .`when`()
             .get("/baked-goods/bananas/stock")

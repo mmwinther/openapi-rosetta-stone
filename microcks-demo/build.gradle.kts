@@ -33,7 +33,7 @@ dependencies {
     testImplementation("io.micronaut.test:micronaut-test-rest-assured")
     testImplementation("org.hamcrest:hamcrest")
     testImplementation("org.testcontainers:junit-jupiter")
-    testImplementation("org.testcontainers:testcontainers")
+    testImplementation("io.github.microcks:microcks-testcontainers:0.3.1")
 }
 
 application {
