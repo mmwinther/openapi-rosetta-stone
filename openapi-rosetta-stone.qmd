@@ -17,8 +17,8 @@ title-slide-attributes:
 
 ## Why OpenAPI?
 
-- Design variation
 - Documentation is central to any API
+- Design variation
 - Open standards
 - Open governance
 - Machine readable
@@ -71,6 +71,10 @@ paths:
 - [Oleg Šelajev Javazone 2024](https://2024.javazone.no/program/d42eb9e5-1d6f-4652-9d69-e6f6f62fc37e)
 - [Microcks is a CNCF sandbox project](https://landscape.cncf.io/?item=app-definition-and-development--application-definition-image-build--microcks)
 
-## Case
+## Case prod {.unnumbered .unlisted}
 
 ![Bakery Service in prod](media/prod-bakery-service.png)\
+
+## Case integration test {.unnumbered .unlisted}
+
+![Bakery Service in integration test](media/integration-test-bakery-service.png)\
