@@ -7,12 +7,15 @@ import io.micronaut.http.exceptions.HttpStatusException
 import io.swagger.v3.oas.annotations.Parameter
 import io.swagger.v3.oas.annotations.media.Content
 import io.swagger.v3.oas.annotations.media.ExampleObject
-import io.swagger.v3.oas.annotations.media.Schema
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.tags.Tag
-import org.zalando.problem.Problem
 
-val bakedGoodsStockStatus = mapOf("muffins" to 12)
+val bakedGoodsStockStatus =
+    mapOf(
+        "muffins" to 12,
+        "croissants" to 25,
+        "hot cross buns" to 13,
+    )
 
 const val PROBLEM_JSON_NOT_FOUND = """{
   "type": "about:blank",
@@ -26,20 +29,28 @@ class BakeryStockController {
      * The number of items remaining of the requested baked good.
      */
     @ApiResponse(
-        responseCode = "200",
+        responseCode = "404",
         content = [
             Content(
-                examples = [ExampleObject(name = "In Stock", value = "75")],
+                examples = [
+                    ExampleObject(
+                        name = "Unknown",
+                        value = PROBLEM_JSON_NOT_FOUND,
+                    ),
+                ],
             ),
         ],
     )
     @ApiResponse(
-        responseCode = "404",
+        responseCode = "200",
         content = [
             Content(
-                mediaType = "application/json+problem",
-                examples = [ExampleObject(name = "Unknown Item", value = PROBLEM_JSON_NOT_FOUND)],
-                schema = Schema(implementation = Problem::class),
+                examples = [
+                    ExampleObject(
+                        name = "In Stock",
+                        value = "75",
+                    ), ExampleObject(name = "Out of Stock", value = "0"),
+                ],
             ),
         ],
     )
@@ -50,7 +61,8 @@ class BakeryStockController {
                 ExampleObject(
                     name = "In Stock",
                     value = "muffins",
-                ), ExampleObject(name = "Unknown Item", value = "bananas"),
+                ), ExampleObject(name = "Out of Stock", value = "bagels"),
+                ExampleObject(name = "Unknown", value = "bananas"),
             ],
         )
         productName: String,

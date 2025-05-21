@@ -31,7 +31,7 @@ class BakeryStockStatusMicrocksTest :
     }
 
     @Test
-    fun `muffins stock status`() {
+    fun `in stock`() {
         RestAssured
             .given()
             .spec(baseSpec)
@@ -41,6 +41,19 @@ class BakeryStockStatusMicrocksTest :
             ).then()
             .statusCode(HttpStatus.OK.code)
             .body(equalTo("75"))
+    }
+
+    @Test
+    fun `out of stock`() {
+        RestAssured
+            .given()
+            .spec(baseSpec)
+            .`when`()
+            .get(
+                "/baked-goods/bagels/stock",
+            ).then()
+            .statusCode(HttpStatus.OK.code)
+            .body(equalTo("0"))
     }
 
     @Test
