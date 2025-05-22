@@ -19,11 +19,10 @@ title-slide-attributes:
 
 - Documentation is central to any API
 - Design variation
-- Open standards
+- Open standard
 - Open governance
 - Machine readable
 - Technology/Programming language agnostic
-- Support tooling
 
 ::: {.notes}
 Open governance structure under the Linux Foundation umbrella
